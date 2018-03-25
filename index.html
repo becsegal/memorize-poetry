@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <title>Memorize Poetry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+  <div id='content' v-on:click="nextStep">
+    <div class='menu'>
+      <div class='menu-item'>Menu</div>
+      <div class='menu-item' v-on:click='byPoem' v-bind:class="{ selected: stepCategory == 'poem' }">Poem</div>
+      <div class='menu-item' v-on:click='byStanza' v-bind:class="{ selected: stepCategory == 'stanza' }">Stanza</div>
+      <div class='menu-item' v-on:click='byLine' v-bind:class="{ selected: stepCategory == 'line' }">Line</div>
+    </div>
+    <div class='poem'>
+      <h1 v-html="title"></h1>
+      <h2>by <span v-html="author"></span></h2>
+      <section v-for="stanza in filteredPoem">
+        <p v-for="line in stanza">
+          <span v-html="line"></span>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/poems.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
