@@ -1,12 +1,13 @@
 var app = new Vue({
   el: '#content',
   data: {
+    contentType: 'menu',
+    menu: [],
     title: '',
     author: '',
-    stepCategory: 'poem',
+    stepCategory: '',
     step: 1,
-    poem: [],
-    progress: 100
+    poem: []
   },
   computed: {
     filteredPoem: function() {
@@ -38,10 +39,33 @@ var app = new Vue({
     }
   },
   methods: {
-    setPoem: function(key) {
-      this.$data.title = poems[key].title;
-      this.$data.author = poems[key].author;
-      this.$data.poem = poems[key].poem;
+    initMenu: function() {
+      this.menu = Object.entries(poems).map(function(entry) {
+        return {
+          path: "#" + entry[0],
+          name: "<strong>" + entry[1].title + "</strong> by " + entry[1].author
+        }
+      }).sort(function(a, b) {
+        return a.name > b.name;
+      });
+    },
+    updateContent: function() {
+      key = window.location.hash.substring(1);
+      if (poems[key]) {
+        this.contentType = 'poem';
+        this.stepCategory = 'poem';
+        this.title = poems[key].title;
+        this.author = poems[key].author;
+        this.poem = poems[key].text;
+      }
+      else {
+        this.contentType = 'menu';
+      }
+    },
+    showMenu: function() {
+      window.location.hash = '';
+      this.stepCategory = '';
+      this.contentType = 'menu';
     },
     nextStep: function() {
       this.step += 1;
@@ -61,6 +85,13 @@ var app = new Vue({
     }
   },
   mounted: function () {
-    this.setPoem('theraven');
+    this.initMenu();
+    this.updateContent();
   }
 });
+
+window.addEventListener("hashchange", function(event) {
+  app.updateContent();
+});
+
+

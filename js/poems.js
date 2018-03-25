@@ -2,7 +2,7 @@ var poems = {
   notwaving: {
     title: "Not Waving but Drowning",
     author: "Stevie Smith",
-    poem: [
+    text: [
       [
         "Nobody heard him, the dead man,",
         "But still he lay moaning:",
@@ -26,7 +26,7 @@ var poems = {
   theraven: {
     title: 'The Raven',
     author: 'Edgar Allan Poe',
-    poem: [
+    text: [
       [
         "Once upon a midnight dreary, while I pondered, weak and weary,",
         "Over many a quaint and curious volume of forgotten lore &mdash;",
@@ -170,6 +170,120 @@ var poems = {
         "And the lamp-light o&lsquo;er him streaming throws his shadow on the floor;",
         "And my soul from out that shadow that lies floating on the floor",
         "Shall be lifted&mdash;nevermore!",
+      ]
+    ]
+  }, 
+  ickleme: {
+    title: "Ickle Me, Pickle Me, Tickle Me Too",
+    author: "Shel Silverstein",
+    text: [
+      [
+        "Ickle Me, Pickle Me, Tickle Me too",
+        "Went for a ride in a flying shoe.",
+        "&ldquo;Hooray!&rdquo;",
+        "&ldquo;What fun!&rdquo;",
+        "&ldquo;It's time we flew!&rdquo;",
+        "Said Ickle Me, Pickle Me, Tickle Me too."
+      ],
+      [
+        "Ickle was captain, and Pickle was crew",
+        "And Tickle served coffee and mulligan stew",
+        "As higher",
+        "And higher",
+        "And higher they flew,",
+        "Ickle Me, Pickle Me, Tickle Me too.",
+      ],
+      [
+        "Ickle Me, Pickle Me, Tickle Me too,",
+        "Over the sun and beyond the blue.",
+        "&ldquo;Hold on!&rdquo;",
+        "&ldquo;Stay in!&rdquo;",
+        "&ldquo;I hope we do!&rdquo;",
+        "Cried Ickle Me, Pickle Me, Tickle Me too.",
+      ],
+      [
+        "Ickle Me, Pickle Me, Tickle too",
+        "Never returned to the world they knew,",
+        "And nobody",
+        "Knows what's",
+        "Happened to",
+        "Dear Ickle Me, Pickle Me, Tickle Me too.",
+      ]
+    ]
+  },
+  fireice: {
+    title: "Fire and Ice",
+    author: "Robert Frost",
+    text: [
+      [
+        "Some say the world will end in fire,",
+        "Some say in ice.",
+        "From what I've tasted of desire",
+        "I hold with those who favor fire.",
+        "But if it had to perish twice,",
+        "I think I know enough of hate",
+        "To say that for destruction ice",
+        "Is also great",
+        "And would suffice."
+      ]
+    ]
+  },
+  bedinsummer: {
+    title: "Bed in Summer",
+    author: "Robert Louis Stevenson",
+    text: [
+      [
+        "In winter I get up at night",
+        "And dress by yellow candle-light.",
+        "In summer, quite the other way,",
+        "I have to go to bed by day."
+      ],
+      [
+        "I have to go to bed and see",
+        "The birds still hopping on the tree,",
+        "Or hear the grown-up people's feet",
+        "Still going past me in the street."
+      ],
+      [
+        "And does it not seem hard to you,",
+        "When all the sky is clear and blue,",
+        "And I should like so much to play,",
+        "To have to go to bed by day?"
+      ]
+    ]
+  },
+  gettysburg: {
+    title: "Gettysburg Address",
+    author: "Abraham Lincoln",
+    text: [
+      [
+        "Four score and seven years ago our fathers brought forth on this continent,",
+        "a new nation, conceived in Liberty, and dedicated to the proposition",
+        "that all men are created equal."
+      ],
+      [
+        "Now we are engaged in a great civil war, testing whether that nation,",
+        "or any nation so conceived and so dedicated, can long endure.",
+        "We are met on a great battle-field of that war.",
+        "We have come to dedicate a portion of that field,",
+        "as a final resting place for those who here gave their lives that that nation might live.",
+        "It is altogether fitting and proper that we should do this."
+      ],
+      [
+        "But, in a larger sense, we can not dedicate &mdash; we can not consecrate &mdash;",
+        "we can not hallow &mdash; this ground.",
+        "The brave men, living and dead, who struggled here, have consecrated it,",
+        "far above our poor power to add or detract.",
+        "The world will little note, nor long remember what we say here,",
+        "but it can never forget what they did here.",
+        "It is for us the living, rather, to be dedicated here",
+        "to the unfinished work which they who fought here have thus far so nobly advanced.",
+        "It is rather for us to be here dedicated to the great task remaining before us &mdash;",
+        "that from these honored dead we take increased devotion to that cause",
+        "for which they gave the last full measure of devotion &mdash;",
+        "that we here highly resolve that these dead shall not have died in vain &mdash;",
+        "that this nation, under God, shall have a new birth of freedom &mdash;",
+        "and that government of the people, by the people, for the people, shall not perish from the earth."
       ]
     ]
   }
