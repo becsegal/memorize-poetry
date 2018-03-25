@@ -46,9 +46,11 @@ var app = new Vue({
         });
         this.poem = lines;
         this.byLine();
+        document.title = this.title;
       }
       else {
         this.contentType = 'menu';
+        document.title = 'Memorize Poetry';
       }
     },
     showMenu: function() {
@@ -97,4 +99,6 @@ app.$watch('step', function(newValue, oldValue) {
   }
 });
 
-
+app.$watch('title', function(newValue, oldValue) {
+  document.title = app.title;
+});
