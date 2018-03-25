@@ -90,13 +90,13 @@ window.addEventListener("hashchange", function(event) {
 });
 
 app.$watch('step', function(newValue, oldValue) {
-  if (app.stepCategory == 'line') {
-    var els = document.getElementsByClassName("highlight");
-    els[els.length - 1].scrollIntoView({
-      behavior: 'smooth',
-      block: 'end'
-    });
-  }
+  // if (app.stepCategory == 'line') {
+  //   var els = document.getElementsByClassName("highlight");
+  //   els[els.length - 1].scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: 'end'
+  //   });
+  // }
 });
 
 app.$watch('title', function(newValue, oldValue) {
