@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Memorize Poetry</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
@@ -10,19 +10,47 @@
 <body>
   <div id='content' v-on:click="nextStep">
     <div class='menu'>
-      <div class='menu-item' v-on:click="showMenu" v-bind:class="{ selected: contentType == 'menu' }">Menu</div>
-      <div class='menu-item' v-on:click='byPoem' v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'poem' }">Poem</div>
-      <div class='menu-item' v-on:click='byStanza' v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'stanza' }">Stanza</div>
-      <div class='menu-item' v-on:click='byLine' v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'line' }">Line</div>
+      <div class='menu-item' 
+        v-on:click="showMenu" 
+        v-bind:class="{ selected: contentType == 'menu' }">
+        Menu
+      </div>
+      <div class='menu-item' 
+        v-on:click='byLine' 
+        v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'line' }">
+        Line
+      </div>
+      <div class='menu-item' 
+        v-on:click='byStanza' 
+        v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'stanza' }">
+        Stanza
+      </div>
+      <div class='menu-item' 
+        v-on:click='byPoem' 
+        v-bind:class="{ selected: contentType == 'poem' && stepCategory == 'poem' }">
+        Poem
+      </div>
     </div>
     <div class='poem' v-if="contentType == 'poem'">
       <h1 v-html="title"></h1>
       <h2>by <span v-html="author"></span></h2>
-      <section v-for="stanza in filteredPoem">
-        <p v-for="line in stanza">
-          <span v-html="line"></span>
+      <p v-if="step == 0 && stepCategory != 'poem'" class='newStanza'>
+        <em>Tap to see next {{stepCategory}}.</em>
+      </p>
+      <div v-else v-for="line in poem">
+        <p v-bind:class="{ 
+          hidden: 
+            (stepCategory == 'line' && step < line.line) 
+            || (stepCategory == 'stanza' && step < line.stanza), 
+          newStanza: line.startOfStanza == true}">
+          <span v-html="line.text" 
+            v-bind:class="{
+            highlight:
+              (stepCategory == 'line' && step == line.line) 
+              || (stepCategory == 'stanza' && line.stanza == step)}">
+          </span>
         </p>
-      </section>
+      </div>
     </div>
     <div v-else>
       <ul v-for="entry in menu">

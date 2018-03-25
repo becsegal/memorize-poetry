@@ -6,37 +6,8 @@ var app = new Vue({
     title: '',
     author: '',
     stepCategory: '',
-    step: 1,
+    step: 0,
     poem: []
-  },
-  computed: {
-    filteredPoem: function() {
-      let poem = this.poem;
-      var count = 0;
-      if (this.stepCategory == 'stanza') {
-        poem = poem.filter((stanza) => {
-          count += 1;
-          return count < this.step;
-        });
-      }
-      else if (this.stepCategory == 'line') {
-        filteredPoem = []
-        poem.forEach( (stanza) => {
-          filteredStanza = [];
-          stanza.forEach( (line) => {
-            count += 1;
-            if (count < this.step) {
-              filteredStanza.push(line);
-            }
-          });
-          if (filteredStanza.length > 0) {
-            filteredPoem.push(filteredStanza);
-          }
-        });
-        poem = filteredPoem;
-      }
-      return poem;
-    }
   },
   methods: {
     initMenu: function() {
@@ -53,10 +24,28 @@ var app = new Vue({
       key = window.location.hash.substring(1);
       if (poems[key]) {
         this.contentType = 'poem';
-        this.stepCategory = 'poem';
         this.title = poems[key].title;
         this.author = poems[key].author;
-        this.poem = poems[key].text;
+        var lines = [];
+        var stanzaCount = 0;
+        var lineCount = 0;
+        var startOfStanza = true;
+        poems[key].text.map(function(stanza) {
+          startOfStanza = true;
+          stanza.map(function(line) {
+            lines.push({
+              text: line,
+              stanza: stanzaCount + 1,
+              line: lineCount + 1,
+              startOfStanza: startOfStanza
+            });
+            lineCount++;
+            startOfStanza = false;
+          });
+          stanzaCount++;
+        });
+        this.poem = lines;
+        this.byLine();
       }
       else {
         this.contentType = 'menu';
@@ -68,20 +57,24 @@ var app = new Vue({
       this.contentType = 'menu';
     },
     nextStep: function() {
-      this.step += 1;
-      this.progress = this.step / 100.0;
+      if ( (this.stepCategory == 'line' && this.step < this.poem.length)
+        || (this.stepCategory == 'stanza' && this.step < this.poem[this.poem.length -1].stanza)
+      ) {
+        this.step += 1;
+        this.progress = this.step / 100.0;
+      }
     },
     byPoem: function() {
       this.stepCategory = 'poem';
-      this.step = 1;
+      this.step = 0;
     },
     byStanza: function() {
       this.stepCategory = 'stanza';
-      this.step = 1;
+      this.step = 0;
     },
     byLine: function() {
       this.stepCategory = 'line';
-      this.step = 1;
+      this.step = 0;
     }
   },
   mounted: function () {
@@ -92,6 +85,16 @@ var app = new Vue({
 
 window.addEventListener("hashchange", function(event) {
   app.updateContent();
+});
+
+app.$watch('step', function(newValue, oldValue) {
+  if (app.stepCategory == 'line') {
+    var els = document.getElementsByClassName("highlight");
+    els[els.length - 1].scrollIntoView({
+      behavior: 'smooth',
+      block: 'end'
+    });
+  }
 });
 
 

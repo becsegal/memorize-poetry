@@ -374,12 +374,12 @@ var poems = {
     author: "T. S. Eliot",
     text: [
       [
-        "S&rsquo;io credesse che mia risposta fosse",
-        "A persona che mai tornasse al mondo,",
-        "Questa fiamma staria senza piu scosse.",
-        "Ma percioche giammai di questo fondo",
-        "Non torno vivo alcun, s&rsquo;i&rsquo;odo il vero,",
-        "Senza tema d&rsquo;infamia ti rispondo."
+        "<em>S&rsquo;io credesse che mia risposta fosse</em>",
+        "<em>A persona che mai tornasse al mondo,</em>",
+        "<em>Questa fiamma staria senza piu scosse.</em>",
+        "<em>Ma percioche giammai di questo fondo</em>",
+        "<em>Non torno vivo alcun, s&rsquo;i&rsquo;odo il vero,</em>",
+        "<em>Senza tema d&rsquo;infamia ti rispondo.</em>"
       ],
       [
         "Let us go then, you and I,",
@@ -549,6 +549,43 @@ var poems = {
         "We have lingered in the chambers of the sea",
         "By sea-girls wreathed with seaweed red and brown",
         "Till human voices wake us, and we drown."
+      ]
+    ]
+  },
+  donotgogentle: {
+    title: "Do not go gentle into that good night",
+    author: "Dylan Thomas",
+    text: [
+      [
+        "Do not go gentle into that good night,",
+        "Old age should burn and rave at close of day;",
+        "Rage, rage against the dying of the light."
+      ],
+      [
+        "Though wise men at their end know dark is right,",
+        "Because their words had forked no lightning they",
+        "Do not go gentle into that good night."
+      ],
+      [
+        "Good men, the last wave by, crying how bright",
+        "Their frail deeds might have danced in a green bay,",
+        "Rage, rage against the dying of the light."
+      ],
+      [
+        "Wild men who caught and sang the sun in flight,",
+        "And learn, too late, they grieved it on its way,",
+        "Do not go gentle into that good night."
+      ],
+      [
+        "Grave men, near death, who see with blinding sight",
+        "Blind eyes could blaze like meteors and be gay,",
+        "Rage, rage against the dying of the light."
+      ],
+      [
+        "And you, my father, there on the sad height,",
+        "Curse, bless, me now with your fierce tears, I pray.",
+        "Do not go gentle into that good night.",
+        "Rage, rage against the dying of the light."
       ]
     ]
   }
